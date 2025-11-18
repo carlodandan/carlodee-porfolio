@@ -1,6 +1,10 @@
 // App.jsx
 import { useState } from 'react';
 import ArtGallery from './components/gallery/ArtGallery';
+import Home from './components/home/Home';
+import About from './components/about/About';
+import Commission from './components/commission/Commission';
+import Contact from './components/contact/Contact';
 import './App.css';
 
 function App() {
@@ -11,9 +15,13 @@ function App() {
       case 'art':
         return <ArtGallery />;
       case 'about':
-        return <AboutSection />;
+        return <About />;
+      case 'commission':
+        return <Commission />;
+      case 'contact':
+        return <Contact />;
       default:
-        return <LandingPage />;
+        return <Home onNavigate={setCurrentSection} />;
     }
   };
 
@@ -61,6 +69,26 @@ function App() {
                 >
                   About
                 </button>
+                <button
+                  onClick={() => setCurrentSection('commission')}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    currentSection === 'commission'
+                      ? 'text-blue-600 bg-blue-50'
+                      : 'text-gray-700 hover:text-blue-600'
+                  }`}
+                >
+                  Commission
+                </button>
+                <button
+                  onClick={() => setCurrentSection('contact')}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    currentSection === 'contact'
+                      ? 'text-blue-600 bg-blue-50'
+                      : 'text-gray-700 hover:text-blue-600'
+                  }`}
+                >
+                  Contact
+                </button>
               </div>
             </div>
 
@@ -84,127 +112,5 @@ function App() {
     </div>
   );
 }
-
-// Landing Page Component
-const LandingPage = () => {
-  return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto text-center">
-        {/* Hero Section */}
-        <div className="mb-12">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
-            Carlo Dee
-          </h1>
-          <p className="text-xl sm:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Anime-style Illustrator & Digital Artist
-          </p>
-          <p className="text-lg text-gray-500 mb-12 max-w-3xl mx-auto">
-            Bringing characters to life through vibrant colors, expressive emotions, 
-            and the unique charm of anime-inspired artistry.
-          </p>
-          
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => window.location.hash = 'art'}
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg"
-            >
-              View My Art Gallery
-            </button>
-            <button
-              onClick={() => window.location.hash = 'about'}
-              className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:border-blue-600 hover:text-blue-600 transition-colors"
-            >
-              Learn About Me
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-// About Section Component
-const AboutSection = () => {
-  return (
-    <section className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
-            About Carlo Dee
-          </h1>
-          <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
-        </div>
-
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Profile Image Placeholder */}
-          <div className="order-2 lg:order-1">
-            <div className="bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl aspect-square max-w-md mx-auto flex items-center justify-center">
-              <span className="text-white text-6xl">🎨</span>
-            </div>
-          </div>
-
-          {/* Bio */}
-          <div className="order-1 lg:order-2 space-y-6">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">My Journey</h2>
-              <p className="text-gray-600 leading-relaxed">
-                Hello! I'm Carlo Dee, a passionate digital artist specializing in anime-style 
-                illustrations. With over 5 years of experience in the digital art space, 
-                I've developed a unique style that blends traditional anime aesthetics with 
-                modern digital techniques.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">My Style</h2>
-              <p className="text-gray-600 leading-relaxed">
-                My art focuses on creating vibrant, emotionally resonant characters and scenes 
-                that tell stories. I love exploring the balance between bold colors, dynamic 
-                compositions, and the subtle expressions that bring characters to life.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Skills & Tools</h2>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  'Digital Illustration',
-                  'Character Design',
-                  'Color Theory',
-                  'Composition',
-                  'Clip Studio Paint',
-                  'Photoshop',
-                  'Procreate',
-                  'Traditional Media'
-                ].map((skill) => (
-                  <div key={skill} className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <span className="text-gray-600">{skill}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Contact Info */}
-            <div className="pt-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Get In Touch</h2>
-              <div className="flex flex-wrap gap-4">
-                <button className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                  Commission Info
-                </button>
-                <button className="border-2 border-gray-300 text-gray-700 px-6 py-2 rounded-lg hover:border-blue-600 hover:text-blue-600 transition-colors">
-                  Contact Me
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 export default App;
