@@ -60,7 +60,6 @@ const ArtProcess = () => {
 
         {/* Art Process Container - Your existing component integrated */}
         <div className="art-process-container">
-          <div className="art-separator"></div>
 
           {/* Images Grid */}
           <div className="art-grid">
@@ -83,8 +82,6 @@ const ArtProcess = () => {
               </div>
             ))}
           </div>
-
-          <div className="art-separator"></div>
         </div>
 
         {/* Process Steps Info */}
