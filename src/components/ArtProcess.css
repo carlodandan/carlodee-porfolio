@@ -1,0 +1,240 @@
+.art-process-container {
+  max-width: 600px;
+  margin: 3rem auto; /* Added top/bottom margin for centering */
+  padding: 3rem;
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  width: 100%; /* Changed from 100% to 90% for proper centering */
+}
+
+.art-label {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+  padding: 0.75rem;
+  flex: 1;
+}
+
+/* Separator Line */
+.art-separator {
+  border-top: 2px solid #d1d5db;
+  margin: 1.5rem 0;
+}
+
+/* Grid Layout - FLEX with NO GAP */
+.art-grid {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.art-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Image Container - Remove borders between images */
+.art-image-container {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #f9fafb;
+  position: relative;
+  border: 2px solid #e5e7eb;
+}
+
+/* Remove right border from first two containers to create seamless look */
+.art-column:first-child .art-image-container {
+  border-right: none;
+  border-radius: 0.75rem 0 0 0.75rem;
+}
+
+.art-column:nth-child(2) .art-image-container {
+  border-right: none;
+  border-radius: 0;
+}
+
+.art-column:last-child .art-image-container {
+  border-radius: 0 0.75rem 0.75rem 0;
+}
+
+.art-image-container:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 15px 35px rgba(59, 130, 246, 0.2);
+  z-index: 10; /* Bring hovered image to front */
+}
+
+.art-image-container:hover .art-image-overlay {
+  opacity: 1;
+}
+
+/* Cropped image */
+.art-image-cropped {
+  height: 100%;
+  object-position: top;
+  transition: transform 0.3s ease;
+}
+
+.art-image-container:hover .art-image-cropped {
+  transform: scale(1.05);
+}
+
+/* Overlay for cropped images */
+.art-image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Modal Styles */
+.art-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 3rem;
+  backdrop-filter: blur(8px);
+  animation: fadeIn 0.3s ease;
+}
+
+.art-modal-content {
+  position: relative;
+  max-width: 95vw;
+  max-height: 95vh;
+  animation: scaleIn 0.3s ease;
+}
+
+.art-modal-close {
+  position: absolute;
+  top: -4rem;
+  right: 0;
+  color: white;
+  font-size: 2.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  z-index: 51;
+}
+
+.art-modal-close:hover {
+  color: #d1d5db;
+}
+
+.art-modal-image-container {
+  background: white;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+.art-modal-image {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  display: block;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .art-process-container {
+    padding: 2rem;
+    width: 95%;
+    margin: 2rem auto; /* Adjusted for mobile */
+  }
+  
+  .art-grid {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+  }
+  
+  .art-image-container {
+    height: 500px;
+  }
+  
+  /* Reset borders for mobile */
+  .art-column:first-child .art-image-container {
+    border-right: none;
+    border-radius: 0.75rem 0 0 0.75rem;
+  }
+  
+  .art-column:nth-child(2) .art-image-container {
+    border-right: none;
+    border-radius: 0;
+  }
+  
+  .art-column:last-child .art-image-container {
+    border-radius: 0 0.75rem 0.75rem 0;
+  }
+  
+  .art-modal-overlay {
+    padding: 1.5rem;
+  }
+  
+  .art-label {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .art-process-container {
+    padding: 1.5rem;
+    margin: 1.5rem auto; /* Adjusted for mobile */
+  }
+  
+  .art-image-container {
+    height: 500px;
+  }
+  
+  .art-label {
+    font-size: 1.125rem;
+  }
+  
+  .art-image-overlay {
+    font-size: 0.875rem;
+    padding: 0.75rem;
+  }
+}
