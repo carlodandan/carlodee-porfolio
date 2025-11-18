@@ -184,17 +184,17 @@
   }
   
   .art-column:first-child .art-image-container {
-    border-right: 2px solid #e5e7eb;
-    border-radius: 0.75rem 0.75rem 0 0;
+    border-right: none;
+    border-radius: 0.75rem 0 0 0.75rem;
   }
   
   .art-column:nth-child(2) .art-image-container {
-    border-right: 2px solid #e5e7eb;
+    border-right: none;
     border-radius: 0;
   }
   
   .art-column:last-child .art-image-container {
-    border-radius: 0 0 0.75rem 0.75rem;
+    border-radius: 0 0.75rem 0.75rem 0;
   }
   
   .art-modal-overlay {
