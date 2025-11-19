@@ -1,9 +1,15 @@
 @import "tailwindcss";
 
+.home-section {
+  display: flex;
+  justify-content: center;
+  margin-top: 4rem;
+}
+
 .home-subtitle {
   font-weight: 500;
   letter-spacing: 0.025em;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
   color: #e2e8f0;
   line-height: 1.4;
 }

@@ -80,7 +80,7 @@ const Contact = () => {
               <div className="contact-info-icon">📧</div>
               <div>
                 <h3 className="contact-info-title">Email</h3>
-                <p className="contact-info-text">hello@carlodee.com</p>
+                <p className="contact-info-text">carlodee.official@gmail.com</p>
                 <p className="contact-info-description">I'll respond within 24 hours</p>
               </div>
             </div>
