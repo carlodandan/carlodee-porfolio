@@ -28,6 +28,7 @@ import rendered3Full from '../../assets/img/3/full/rendered.webp';
 
 const ArtGallery = () => {
   const [expandedImage, setExpandedImage] = useState(null);
+  const [isClosing, setIsClosing] = useState(false);
 
   const images = [
     {
@@ -94,10 +95,15 @@ const ArtGallery = () => {
 
   const handleImageClick = (index, type) => {
     setExpandedImage({ index, type });
+    setIsClosing(false);
   };
 
   const closeExpanded = () => {
-    setExpandedImage(null);
+    setIsClosing(true);
+    setTimeout(() => {
+      setExpandedImage(null);
+      setIsClosing(false);
+    }, 500); // Match this with the animation duration
   };
 
   return (
@@ -105,13 +111,13 @@ const ArtGallery = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl sm:text-5xl font-bold text-white mb-6">
             Art Gallery
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Explore my creative workflow from initial sketch to final rendered illustration
           </p>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mt-6"></div>
+          <div className="w-24 h-1 bg-blue-500 mx-auto mt-6"></div>
         </div>
 
         {/* Art Gallery Containers - Each entry has its own container */}
@@ -140,10 +146,10 @@ const ArtGallery = () => {
         {/* Modal for full image */}
         {expandedImage && (
           <div 
-            className="art-modal-overlay"
+            className={`art-modal-overlay ${isClosing ? 'closing' : ''}`}
             onClick={closeExpanded}
           >
-            <div className="art-modal-content">
+            <div className={`art-modal-content ${isClosing ? 'closing' : ''}`}>
               <button
                 className="art-modal-close"
                 onClick={closeExpanded}

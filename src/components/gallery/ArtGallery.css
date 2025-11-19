@@ -96,18 +96,28 @@
   animation: fadeIn 0.3s ease;
 }
 
+.art-modal-overlay.closing {
+  animation: fadeOut 0.3s ease forwards;
+}
+
 .art-modal-content {
   position: relative;
   max-width: 95vw;
   max-height: 95vh;
-  animation: scaleIn 0.3s ease;
+  animation: flipIn 0.5s ease-out forwards;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.art-modal-content.closing {
+  animation: flipOut 0.5s ease-in forwards;
 }
 
 .art-modal-close {
   position: absolute;
   right: 0;
-  color: white;
-  font-size: 2.5rem;
+  color: rgb(0, 0, 0);
+  font-size: 2rem;
   background: none;
   border: none;
   cursor: pointer;
@@ -116,8 +126,12 @@
   animation: scaleIn 0.3s ease;
 }
 
+button.art-modal-close {
+  background-color: transparent !important;
+}
+
 .art-modal-close:hover {
-  color: #d1d5db;
+  color: var(--color-primary-500);
 }
 
 .art-modal-image-container {
@@ -126,6 +140,7 @@
   overflow: hidden;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
   border: 1px solid #334155;
+  transform-style: preserve-3d;
 }
 
 .art-modal-image {
@@ -133,11 +148,17 @@
   max-height: 85vh;
   object-fit: contain;
   display: block;
+  transform-style: preserve-3d;
 }
 
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 @keyframes scaleIn {
@@ -148,6 +169,36 @@
   to {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+@keyframes flipIn {
+  0% {
+    transform: perspective(1000px) rotateX(90deg) scale(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: perspective(1000px) rotateX(-10deg) scale(1.05);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(1000px) rotateX(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes flipOut {
+  0% {
+    transform: perspective(1000px) rotateX(0deg) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: perspective(1000px) rotateX(-10deg) scale(1.05);
+    opacity: 0.7;
+  }
+  100% {
+    transform: perspective(1000px) rotateX(90deg) scale(0.8);
+    opacity: 0;
   }
 }
 
@@ -186,6 +237,36 @@
   .art-modal-overlay {
     padding: 1rem;
   }
+  
+  @keyframes flipIn {
+    0% {
+      transform: perspective(800px) rotateY(90deg) scale(0.8);
+      opacity: 0;
+    }
+    50% {
+      transform: perspective(800px) rotateY(-5deg) scale(1.02);
+      opacity: 0.7;
+    }
+    100% {
+      transform: perspective(800px) rotateY(0deg) scale(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes flipOut {
+    0% {
+      transform: perspective(800px) rotateY(0deg) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: perspective(800px) rotateY(-5deg) scale(1.02);
+      opacity: 0.7;
+    }
+    100% {
+      transform: perspective(800px) rotateY(90deg) scale(0.8);
+      opacity: 0;
+    }
+  }
 }
 
 @media (max-width: 480px) {
@@ -196,15 +277,26 @@
   .art-image-container {
     height: 300px;
   }
-}
-
-@keyframes scaleIn {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
+  
+  @keyframes flipIn {
+    0% {
+      transform: perspective(600px) rotateY(90deg) scale(0.7);
+      opacity: 0;
+    }
+    100% {
+      transform: perspective(600px) rotateY(0deg) scale(1);
+      opacity: 1;
+    }
   }
-  to {
-    transform: scale(1);
-    opacity: 1;
+  
+  @keyframes flipOut {
+    0% {
+      transform: perspective(600px) rotateY(0deg) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: perspective(600px) rotateY(90deg) scale(0.7);
+      opacity: 0;
+    }
   }
 }
