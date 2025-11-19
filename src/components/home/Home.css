@@ -1,43 +1,28 @@
 @import "tailwindcss";
 
-.home-section {
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-  min-height: calc(100vh - 4rem);
-  padding: 2rem 0;
-  width: 100%;
-}
-
-.home-title {
-  background: linear-gradient(135deg, #ffffff 0%, #bfdbfe 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1.5rem;
-}
-
 .home-subtitle {
   font-weight: 500;
   letter-spacing: 0.025em;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   color: #e2e8f0;
+  line-height: 1.4;
 }
 
 .home-description {
-  line-height: 1.7;
-  margin-bottom: 3rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
   color: #cbd5e1;
 }
 
 /* Add margin to CTA container */
 .home-cta-container {
   animation: fadeInUp 0.8s ease-out 0.3s both;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .home-cta-primary {
   transform: translateY(0);
   transition: all 0.3s ease;
-  margin: 0.5rem;
   background: linear-gradient(135deg, #3b82f6, #1e40af);
   color: white;
   border: none;
@@ -50,7 +35,6 @@
 
 .home-cta-secondary {
   transition: all 0.3s ease;
-  margin: 0.5rem;
   background: transparent;
   color: #e2e8f0;
   border: 2px solid #3b82f6;
@@ -60,6 +44,28 @@
   transform: translateY(-2px);
   background: rgba(59, 130, 246, 0.1);
   color: #ffffff;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 640px) {
+  .home-title {
+    margin-bottom: 0.75rem;
+  }
+  
+  .home-subtitle {
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+  }
+  
+  .home-description {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .home-cta-container {
+    margin-top: 1rem;
+  }
 }
 
 @keyframes fadeInUp {

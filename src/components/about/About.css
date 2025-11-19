@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-.about-section {
-  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-}
-
 .about-title {
   background: linear-gradient(135deg, #ffffff 0%, #bfdbfe 100%);
   -webkit-background-clip: text;
