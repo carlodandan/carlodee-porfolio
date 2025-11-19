@@ -1,15 +1,24 @@
 // components/NavBar.jsx
 import { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const NavBar = ({ currentSection, setCurrentSection }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleNavClick = (section) => {
     setCurrentSection(section);
     setIsMobileMenuOpen(false);
+    // Router will handle the URL change via setCurrentSection
   };
 
-  // Common button styles to match Home component
+  const handleLogoClick = () => {
+    setCurrentSection('home');
+    navigate('/');
+  };
+
+  // Common button styles
   const navButtonBase = "px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ease-in-out";
   const navButtonActive = "text-blue-400 bg-blue-900/50 shadow-lg";
   const navButtonInactive = "text-gray-300 hover:text-blue-400 hover:bg-slate-800";
@@ -28,12 +37,12 @@ const NavBar = ({ currentSection, setCurrentSection }) => {
           <div className="flex-shrink-0">
             <div 
               className="transition-all duration-300 hover:scale-105 cursor-pointer flex items-center"
-              onClick={() => handleNavClick('home')}
+              onClick={handleLogoClick}
             >
               <img 
                 src="/icons/ms-icon-310x310.png" 
                 alt="Carlo Dee Logo" 
-                className="h-10 w-10 object-contain" // Adjust size as needed
+                className="h-10 w-10 object-contain"
               />
             </div>
           </div>

@@ -91,6 +91,10 @@
   color: #e2e8f0;
 }
 
+.about-grid {
+  margin-top: 1rem;
+}
+
 @keyframes scaleIn {
   from {
     transform: scaleX(0);

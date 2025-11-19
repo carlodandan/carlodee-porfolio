@@ -5,7 +5,7 @@ const About = () => {
     <section className="about-section min-h-screen py-5 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="flex flex-col items-center justify-center mb-16">
           <h1 className="about-title text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
             About Carlo Dee
           </h1>
@@ -13,7 +13,7 @@ const About = () => {
         </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="about-grid grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Profile Image Placeholder */}
           <div className="order-2 lg:order-1">
             <div className="about-image bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl aspect-square max-w-md mx-auto flex items-center justify-center">

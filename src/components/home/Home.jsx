@@ -1,8 +1,9 @@
+// components/home/Home.jsx
 import './Home.css';
 
 const Home = ({ onNavigate }) => {
   return (
-    <section className="home-section min-h-screen py-5 px-4 sm:px-6 lg:px-8">
+    <section className="home-section flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto text-center w-full">
         {/* Hero Section */}
         <div className="flex flex-col items-center justify-center space-y-4 sm:space-y-6">

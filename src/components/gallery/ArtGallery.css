@@ -7,7 +7,8 @@
   border-radius: 1rem;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* This creates 3 equal columns */
   gap: 1rem;
   background: #1e293b;
   border: 1px solid #334155;
@@ -28,7 +29,6 @@
 
 .art-grid {
   display: flex;
-  align-items: stretch;
   justify-content: center;
 }
 
@@ -118,13 +118,14 @@
   position: absolute;
   right: 0;
   color: rgb(0, 0, 0);
-  font-size: 2rem;
+  font-size: 1rem;
   background: none;
   border: none;
   cursor: pointer;
   transition: color 0.2s ease;
   z-index: 51;
   animation: scaleIn 0.3s ease;
+  border-radius: 50%;
 }
 
 button.art-modal-close {
@@ -152,6 +153,12 @@ button.art-modal-close:hover {
   object-fit: contain;
   display: block;
   transform-style: preserve-3d;
+}
+
+.art-gallery-divider {
+  transform: scaleX(0);
+  animation: scaleIn 0.8s ease-out 0.3s forwards;
+  background: #3b82f6;
 }
 
 @keyframes fadeIn {
@@ -212,12 +219,13 @@ button.art-modal-close:hover {
     width: 95%;
     margin: 1rem auto;
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .art-grid {
     display: flex;
-    align-items: stretch;
     justify-content: center;
+    max-height: 250px;
   }
   
   .art-image-container {
@@ -277,6 +285,7 @@ button.art-modal-close:hover {
   .art-process-container {
     padding: 1rem;
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
   
   .art-image-container {

@@ -157,3 +157,7 @@
     transform: translateX(0);
   }
 }
+
+.contact-form-grid {
+  margin-top: 1rem;
+}

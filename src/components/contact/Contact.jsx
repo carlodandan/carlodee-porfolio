@@ -5,7 +5,7 @@ const Contact = () => {
     <section className="contact-section min-h-screen py-5 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="flex flex-col items-center justify-center mb-16">
           <h1 className="contact-title text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
             Get In Touch
           </h1>
@@ -15,7 +15,7 @@ const Contact = () => {
           <div className="contact-divider w-24 h-1 bg-blue-600 mx-auto mt-6"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="contact-form-grid grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="contact-form-container">
             <form className="contact-form space-y-6">

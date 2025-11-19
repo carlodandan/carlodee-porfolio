@@ -26,7 +26,7 @@ const Commission = () => {
     <section className="commission-section min-h-screen py-5 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="flex flex-col items-center justify-center mb-16">
           <h1 className="commission-title text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
             Commission Information
           </h1>
