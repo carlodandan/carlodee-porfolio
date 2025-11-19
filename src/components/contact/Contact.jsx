@@ -1,4 +1,3 @@
-// components/Contact.jsx
 import './Contact.css';
 
 const Contact = () => {

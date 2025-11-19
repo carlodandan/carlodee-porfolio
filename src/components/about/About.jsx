@@ -1,4 +1,3 @@
-// components/About.jsx
 import './About.css';
 
 const About = () => {

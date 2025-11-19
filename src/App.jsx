@@ -27,12 +27,12 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-blue-900">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-blue-900 flex flex-col items-center">
       {/* Navigation */}
       <NavBar currentSection={currentSection} setCurrentSection={setCurrentSection} />
 
       {/* Main Content */}
-      <main className="pt-16">
+      <main className="pt-16 w-full max-w-7xl flex-1 flex flex-col items-center">
         {renderSection()}
       </main>
     </div>

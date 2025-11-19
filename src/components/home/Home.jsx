@@ -1,4 +1,3 @@
-// components/Home.jsx
 import './Home.css';
 
 const Home = ({ onNavigate }) => {

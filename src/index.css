@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 /* Root Variables - Design System */
 :root {
   /* Colors - Primary - Blue Shades */
@@ -324,4 +326,12 @@ img, picture, video, canvas, svg {
 
 .gap-6 {
   gap: 1.5rem;
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }

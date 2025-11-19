@@ -1,4 +1,3 @@
-// components/Commission.jsx
 import './Commission.css';
 
 const Commission = () => {
