@@ -32,7 +32,7 @@ function App() {
       <NavBar currentSection={currentSection} setCurrentSection={setCurrentSection} />
 
       {/* Main Content */}
-      <main className="pt-16 w-full max-w-7xl flex-1 flex flex-col items-center">
+      <main className="pt-20 w-full max-w-7xl flex-1 flex flex-col items-center">
         {renderSection()}
       </main>
     </div>
