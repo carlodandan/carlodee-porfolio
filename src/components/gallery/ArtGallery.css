@@ -12,7 +12,7 @@
   border: 1px solid #334155;
   justify-content: center;
   transform: scaleX(0);
-  animation: scaleIn 0.8s ease-out 0.3s forwards;
+  animation: fadeIn 0.8s ease-out 0.3s forwards;
 }
 
 .art-label {
@@ -45,7 +45,8 @@
   transition: all 0.3s ease;
   background: #0f172a;
   position: relative;
-  border: 2px solid #334155;
+  border: 2px solid #ffffff;
+  animation: scaleIn 0.8s ease-out 0.3s forwards;
 }
 
 .art-column:first-child .art-image-container {
@@ -104,7 +105,6 @@
 
 .art-modal-close {
   position: absolute;
-  top: -4rem;
   right: 0;
   color: white;
   font-size: 2.5rem;
@@ -113,6 +113,7 @@
   cursor: pointer;
   transition: color 0.2s ease;
   z-index: 51;
+  animation: scaleIn 0.3s ease;
 }
 
 .art-modal-close:hover {
